@@ -7,6 +7,7 @@
       </label>
       <div class="list card" id="search-card27">
         <ion-item class="item-avatar" id="search-list-item26" ui-sref="tabsController.profile" ng-repeat="user in userList | filter: searchQuery">
+          {{user.id}}
           {{user.name}}
           <img ng-src='{{user.picture}}' />
         </ion-item>
