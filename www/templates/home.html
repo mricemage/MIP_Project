@@ -1,6 +1,6 @@
 <ion-view title="Home" id="page5" style="background-color:#7BD2F0;">
   <ion-content padding="true" class="has-header">
-    <div class="list card" id="home-card21" ng-repeat="x in user">
+    <div class="list card" id="home-card21" ng-repeat="x in user" ng-controller="homeCtrl" ng-app>
       <ion-item class="item-avatar" id="home-list-item3">
       <img ng-src="{{ x.userprofileimage }}">
         <h2>{{x.name}}</h2>
