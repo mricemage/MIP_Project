@@ -7,11 +7,20 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives','app.services',])
 
-.config(function($ionicConfigProvider, $sceDelegateProvider){
+.config(function($ionicConfigProvider, $sceDelegateProvider, $stateProvider, $urlRouterProvider){
   
 
   $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
-
+  $stateProvider.state('app.search', {
+      url: '/search',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/search.html',
+          controller: 'searchCtrl'
+        }
+      }
+    });
+    
 })
 
 .run(function($ionicPlatform) {
@@ -28,8 +37,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
     }
   });
 })
-
-  /* Directive links to other pages */
 
 /*
   This directive is used to disable the "drag to open" functionality of the Side-Menu
