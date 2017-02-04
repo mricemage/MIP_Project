@@ -15,18 +15,41 @@ function ($scope, $stateParams) {
 
 	var user = [
 			{
-				name: "Cirilla",
-				userprofileimage: "img/ciriwitcher3.png",
-				userimage: "img/ciri_image.jpg"
+				"name": "Cirilla",
+				"userprofileimage": "img/ciriwitcher3.png",
+				"userimage": "img/ciri_image.jpg",
+				"like": 230
 			},
 			{
-				name: "Geralt",
-				userprofileimage: "img/geraltwitcher3.png",
-				userimage: "img/geralt_image.jpg"
+				"name": "Geralt",
+				"userprofileimage": "img/geraltwitcher3.png",
+				"userimage": "img/geralt_image.jpg",
+				"like": 278
+			},
+			{
+				"name": "bichphuongsinger",
+				"userprofileimage": "img/bichphuong.jpg",
+				"userimage": "img/bichphuong_image.jpg",
+				"like": 285
 			}
 	]
 
 	$scope.user = user;
+
+	var hasLiked = false;
+
+	$scope.likeClick = function() {
+		if (!hasLiked) {
+			hasLiked = true;
+			
+			$scope.likeCount += 1;
+			console.log(user[0].like);
+		} else {
+			hasLiked = false;
+			
+			$scope.likeCount -= 1;
+		}
+	};
 
 
 }])
