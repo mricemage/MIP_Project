@@ -37,19 +37,25 @@ function ($scope, $stateParams) {
 	$scope.user = user;
 
 	var hasLiked = false;
-
+	$scope.class = "button button-light  icon ion-ios-heart-outline";
 	$scope.likeClick = function() {
 		if (!hasLiked) {
 			hasLiked = true;
-			
+			$scope.liked = 'Unlike';
 			$scope.likeCount += 1;
 			console.log(user[0].like);
+			$scope.class = "button button-light icon ion-ios-heart";
 		} else {
 			hasLiked = false;
-			
+			$scope.liked = 'Like';
 			$scope.likeCount -= 1;
+			$scope.class = "button button-light  icon ion-ios-heart-outline";
 		}
+
+
 	};
+
+	
 
 
 }])

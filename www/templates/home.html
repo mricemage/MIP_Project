@@ -6,7 +6,7 @@
         <h2>{{x.name}}</h2>
       </ion-item>
       <img src="{{x.userimage}}" width="396" height="216">
-       <button ng-click="likeClick()" ng-init="likeCount = x.like" id="home-button1" class="button button-light  icon ion-ios-heart-outline"> {{ likeCount }}</button>
+       <button ng-click="likeClick()" ng-init="liked='Like';likeCount = x.like" id="home-button1" ng-class="class">  {{ likeCount }}</button>
         <button id="home-button2" class="button button-light  icon ion-android-chat"></button>
         <div class="list card" id="home-card24">
         <ion-item class="item-avatar" id="home-list-item11" >
