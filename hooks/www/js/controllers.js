@@ -1,3 +1,6 @@
+
+
+
 	angular.module('app.controllers', [])
   
 	.controller('cameraCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -58,34 +61,47 @@ function ($scope, $stateParams) {
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
 function ($scope, $stateParams) {
+ var userList = JSON.parse(localStorage.getItem("userList"));
+  $scope.userList = userList;
+}])
 
-$scope.userList = 
-[
-{'id': 1,
- 'name': 'Pham Huong',
- 'picture': 'img/img1.jpg'},
- {'id': 2,
- 'name': 'Boe Pham',
- 'picture': 'img/img2.jpg'},
- {'id': 3,
- 'name': 'Smith Wesley',
- 'picture': 'img/img3.jpg'},
- {'id': 3,
- 'name': 'Jane Ionic',
- 'picture': 'img/img4.jpg'},
- {'id': 3,
- 'name': 'Lasse Khoai',
- 'picture': 'img/img5.jpg'},
- {'id': 3,
- 'name': 'Thang Minh',
- 'picture': 'img/img1.jpg'}
+//    .controller('profileCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// // You can include any angular dependencies as parameters for this function
+// // TIP: Access Route Parameters for your page via $stateParams.parameterName
+// function ($scope, $stateParams) {
+// var storedNames = JSON.parse(localStorage.getItem("userList"));
+// $scope.userList = storedNames;
+// console.log(storedNames);
 
-];
+//    }])
+
+.controller('profileCtrl', ['$scope', '$stateParams', 
+function ($scope, $stateParams) {
+var userList = JSON.parse(localStorage.getItem("userList"));
+  $scope.userList = userList[0];
+}])
+
+.controller('profileController', ['$scope', '$stateParams', function($scope,$stateParams, DataService) {
+var storedNames = JSON.parse(localStorage.getItem("userList"));
+var dm = $stateParams.id;
+$scope.userList = [];
+var k = 0;
+for(var i = 0; i < storedNames.length ; i++ ){
+	if(storedNames[i].id == dm)
+	{
+		$scope.userList[k] = storedNames[i];
+		k++;
+		console.log(dm);
+	}
+	else{
+		console.log('true');
+	}
+}
+
+ 
+
 
 }])
-   
-
-   
 	.controller('pageCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
